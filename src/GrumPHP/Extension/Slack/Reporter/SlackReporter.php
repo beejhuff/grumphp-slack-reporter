@@ -147,7 +147,9 @@ class SlackReporter implements ReporterInterface
     private function generateIcon(TaskResultCollection $taskResults): string
     {
         $passed = $taskResults->isPassed() || $taskResults->isEmpty();
+        $url = 'https://raw.githubusercontent.com/phpro/grumphp-slack-reporter/master/resources/avatars/';
+        $path = $passed ? 'grumphp-happy.png' : 'grumphp-grumpy.png';
 
-        return $passed ? 'grumphp-happy.png' : 'grumphp-grumpy.png';
+        return $url . $path;
     }
 }
