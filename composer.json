@@ -1,0 +1,23 @@
+{
+  "name": "phpro/grumphp-slack-reporter",
+  "description": "A GrumPHP extension that reports to slack",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Toon Verwerft",
+      "email": "toon.verwerft@phpro.be"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "GrumPHP\\Extension\\Slack\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.0",
+    "phpro/grumphp": "~0.9.2",
+    "maknz/slack": "^1.7"
+  },
+  "license": "MIT",
+  "minimum-stability": "stable"
+}

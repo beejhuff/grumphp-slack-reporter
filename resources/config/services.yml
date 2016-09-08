@@ -1,0 +1,23 @@
+services:
+    grumphp.slack_reporter.config:
+        class: 'GrumPHP\Extension\Slack\Config\SlackConfig'
+        factory: ['GrumPHP\Extension\Slack\Config\SlackConfig', 'resolveFromConfig']
+        arguments:
+          - '%slack_reporter%'
+    grumphp.slack_reporter.data_collector.git_info:
+        class: 'GrumPHP\Extension\Slack\DataCollector\GitInfo'
+        arguments:
+          - '@git.repository'
+    grumphp.slack_reporter.messaging.message_provider:
+        class: 'GrumPHP\Extension\Slack\Messaging\MessageProvider'
+    grumphp.slack_reporter.slack_client:
+        class: 'Maknz\Slack\Client'
+        factory: ['GrumPHP\Extension\Slack\Factory\SlackClientFactory', 'factory']
+        arguments:
+          - '@grumphp.slack_reporter.config'
+    grumphp.slack_reporter.reporter.slack:
+        class: 'GrumPHP\Extension\Slack\Reporter\SlackReporter'
+        arguments:
+          - '@grumphp.slack_reporter.slack_client'
+          - '@grumphp.slack_reporter.data_collector.git_info'
+          - '@grumphp.slack_reporter.messaging.message_provider'

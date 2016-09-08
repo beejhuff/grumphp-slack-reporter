@@ -1,0 +1,8 @@
+services:
+  grumphp.slack_reporter.listener.slack_reporter:
+    class: 'GrumPHP\Extension\Slack\EventListener\SlackReporterListener'
+    arguments:
+      - '@grumphp.slack_reporter.reporter.slack'
+    tags:
+      - { name: grumphp.event_listener, event: grumphp.runner.complete, method: onSuccess }
+      - { name: grumphp.event_listener, event: grumphp.runner.failed, method: onFailed }
