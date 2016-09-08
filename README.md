@@ -14,6 +14,9 @@ or explain how the team members should test their code.
 It is not intended to use this tool to blame people for writing bad code,
  but for helping improve their coding skills and push them to a higher level.
 
+An example message looks like this:
+
+<img src="https://raw.githubusercontent.com/phpro/grumphp-slack-reporter/master/resources/images/integration-sample.png"/>
 
 ## Installation
 
